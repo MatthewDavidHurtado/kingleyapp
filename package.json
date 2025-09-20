@@ -1,0 +1,25 @@
+{
+  "name": "trial-run-fake-coin-of-needs-x-acct-trial-run-demo-of-kingley-recruitment-funnel",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "react": "^19.1.1",
+    "@google/genai": "^1.20.0",
+    "react-confetti": "6.1.0",
+    "react-dom": "^19.1.1",
+    "tweetnacl": "1.0.3",
+    "bs58": "5.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.14.0",
+    "@vitejs/plugin-react": "^5.0.0",
+    "typescript": "~5.8.2",
+    "vite": "^6.2.0"
+  }
+}

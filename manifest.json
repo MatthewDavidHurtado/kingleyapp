@@ -1,0 +1,20 @@
+{
+  "short_name": "KINGLEY",
+  "name": "KINGLEY | Earn Your Crown",
+  "icons": [
+    {
+      "src": "https://i.imgur.com/N3bKqsL.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "https://i.imgur.com/N3bKqsL.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#FFFFFF",
+  "background_color": "#FFFFFF"
+}
