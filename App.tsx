@@ -50,39 +50,6 @@ const App: React.FC = () => {
 
   const [currentPage, setCurrentPage] = useState<Page>(getInitialPage());
 
-  useEffect(() => {
-    const registerServiceWorker = () => {
-        if ('serviceWorker' in navigator) {
-            navigator.serviceWorker.register('/sw.js?v=2024080101').then(registration => {
-                // This event fires when the service worker file has been found to be new
-                registration.onupdatefound = () => {
-                    const installingWorker = registration.installing;
-                    if (installingWorker == null) {
-                        return;
-                    }
-                    installingWorker.onstatechange = () => {
-                        // The new service worker is installed and waiting to activate.
-                        // If there's an active controller, it means we are updating an old version.
-                        if (installingWorker.state === 'installed' && navigator.serviceWorker.controller) {
-                            // A new version is available. Force a reload to get the new assets.
-                            console.log('New content is available, forcing reload...');
-                            window.location.reload();
-                        }
-                    };
-                };
-            }).catch(error => {
-                console.error('Service Worker registration failed:', error);
-            });
-        }
-    };
-    
-    window.addEventListener('load', registerServiceWorker);
-    
-    return () => {
-        window.removeEventListener('load', registerServiceWorker);
-    };
-  }, []);
-
   const navigateTo = useCallback((page: Page) => {
     setCurrentPage(page);
     sessionStorage.setItem('currentPage', page); // Keep session storage in sync
