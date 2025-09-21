@@ -71,6 +71,11 @@ const steps = [
     image: "https://i.imgur.com/rPjc1O8.jpg",
     description: "Gift $RWPOV tokens to the recipient, expand the TR!BE, and grow real-world value."
   }
+  {
+    title: "Seed $RWPOV, Put Value On-Chain\nRecruit a TR!BE Member",
+    image: "https://i.imgur.com/rPjc1O8.jpg",
+    description: "Gift $RWPOV tokens to the recipient, expand the TR!BE, and grow real-world value."
+  }
 ];
 
 const SixStepsPage: React.FC<SixStepsPageProps> = ({ navigateTo }) => {
