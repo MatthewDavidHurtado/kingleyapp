@@ -13,6 +13,7 @@ const PWAInstallPrompt: React.FC = () => {
   } = usePWA();
   
   const [showIOSInstructions, setShowIOSInstructions] = useState(false);
+  const [showManualInstructions, setShowManualInstructions] = useState(false);
 
   // Don't show if already installed or running as standalone app
   if (isInstalled || isStandalone || !showInstallPrompt) {
@@ -24,7 +25,13 @@ const PWAInstallPrompt: React.FC = () => {
     if (platform === 'ios') {
       setShowIOSInstructions(true);
     } else {
-      await installApp();
+      try {
+        await installApp();
+      } catch (error) {
+        console.error('Install failed:', error);
+        // If automatic install fails, show manual instructions
+        setShowManualInstructions(true);
+      }
     }
   };
 
@@ -53,6 +60,64 @@ const PWAInstallPrompt: React.FC = () => {
         return 'Install KINGLEY for the best experience.';
     }
   };
+
+  if (showManualInstructions) {
+    return (
+      <div className="fixed inset-0 bg-black/60 z-[200] flex items-center justify-center p-4">
+        <div className="bg-white rounded-xl shadow-2xl max-w-sm w-full">
+          <div className="flex justify-between items-center p-4 border-b border-gray-200">
+            <h3 className="text-lg font-bold font-serif text-black">Install KINGLEY</h3>
+            <button
+              onClick={() => {
+                setShowManualInstructions(false);
+                dismissInstallPrompt();
+              }}
+              className="p-1 text-gray-500 hover:text-black transition-colors rounded-full hover:bg-gray-100"
+            >
+              <XIcon className="w-5 h-5" />
+            </button>
+          </div>
+          <div className="p-6 text-center">
+            <TribeLogo className="w-16 h-16 mx-auto mb-4" />
+            <div className="space-y-4 text-left">
+              {platform === 'desktop' ? (
+                <>
+                  <div className="flex items-start space-x-3">
+                    <div className="w-6 h-6 bg-blue-500 text-white rounded-full flex items-center justify-center text-sm font-bold flex-shrink-0 mt-0.5">1</div>
+                    <p className="text-sm text-gray-700">Look for an <strong>install icon</strong> in your browser's address bar</p>
+                  </div>
+                  <div className="flex items-start space-x-3">
+                    <div className="w-6 h-6 bg-blue-500 text-white rounded-full flex items-center justify-center text-sm font-bold flex-shrink-0 mt-0.5">2</div>
+                    <p className="text-sm text-gray-700">Or go to your browser menu and select <strong>"Install KINGLEY"</strong></p>
+                  </div>
+                </>
+              ) : (
+                <>
+                  <div className="flex items-start space-x-3">
+                    <div className="w-6 h-6 bg-blue-500 text-white rounded-full flex items-center justify-center text-sm font-bold flex-shrink-0 mt-0.5">1</div>
+                    <p className="text-sm text-gray-700">Tap the <strong>menu (⋮)</strong> in your browser</p>
+                  </div>
+                  <div className="flex items-start space-x-3">
+                    <div className="w-6 h-6 bg-blue-500 text-white rounded-full flex items-center justify-center text-sm font-bold flex-shrink-0 mt-0.5">2</div>
+                    <p className="text-sm text-gray-700">Select <strong>"Add to Home Screen"</strong> or <strong>"Install App"</strong></p>
+                  </div>
+                </>
+              )}
+            </div>
+            <button
+              onClick={() => {
+                setShowManualInstructions(false);
+                dismissInstallPrompt();
+              }}
+              className="w-full mt-6 bg-gray-900 text-white font-bold py-3 px-6 rounded-lg hover:bg-gray-700 transition-colors"
+            >
+              Got it!
+            </button>
+          </div>
+        </div>
+      </div>
+    );
+  }
 
   if (showIOSInstructions) {
     return (
