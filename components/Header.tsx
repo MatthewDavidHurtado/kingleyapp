@@ -61,7 +61,6 @@ const ResourcesDropdown: React.FC<{ navigateTo: (page: Page) => void; currentPag
   }, [dropdownRef]);
 
   const isResourceActive = [Page.STORY, Page.HOW_TO_FILM, Page.RELEASE_FORM, Page.SHARE_VIDEO].includes(currentPage);
-  const isResourceActive = [Page.STORY, Page.HOW_TO_FILM, Page.RELEASE_FORM, Page.SHARE_VIDEO, Page.SIX_STEPS].includes(currentPage);
 
   return (
     <div className="relative" ref={dropdownRef}>
