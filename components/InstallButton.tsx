@@ -42,6 +42,7 @@ const InstallButton: React.FC<InstallButtonProps> = ({
     <button
       onClick={installApp}
       className={`${baseClasses} ${variantClasses[variant]} ${className}`}
+      onMouseDown={() => console.log('🖱️ Install button mouse down')}
     >
       <DownloadIcon className="w-4 h-4 mr-2" />
       {getButtonText()}

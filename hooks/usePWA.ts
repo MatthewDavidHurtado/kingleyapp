@@ -107,31 +107,42 @@ export const usePWA = (): PWAState => {
   }, []);
 
   const installApp = useCallback(async () => {
-    console.log('Install app called', { platform, deferredPrompt: !!deferredPrompt });
+    console.log('🚀 Install app called', { 
+      platform, 
+      hasDeferredPrompt: !!deferredPrompt,
+      isInstallable,
+      showInstallPrompt 
+    });
     
     if (platform === 'ios') {
-      // For iOS, we can't programmatically install, so we show instructions
+      console.log('📱 iOS detected - showing instructions');
+      setShowIOSInstructions(true);
       return;
     }
 
     if (deferredPrompt) {
       try {
-        console.log('Showing install prompt...');
+        console.log('✅ Showing browser install prompt...');
         await deferredPrompt.prompt();
         const choiceResult = await deferredPrompt.userChoice;
-        console.log('User choice:', choiceResult.outcome);
+        console.log('👤 User choice:', choiceResult.outcome);
         
         if (choiceResult.outcome === 'accepted') {
           setIsInstalled(true);
           localStorage.setItem('pwa-installed', 'true');
-          console.log('App installed successfully');
+          console.log('🎉 App installed successfully');
         }
         
         setDeferredPrompt(null);
         setShowInstallPrompt(false);
       } catch (error) {
-        console.error('Error during app installation:', error);
+        console.error('❌ Error during app installation:', error);
+        // Show manual instructions as fallback
+        setShowManualInstructions(true);
       }
+    } else {
+      console.log('⚠️ No deferred prompt available - showing manual instructions');
+      setShowManualInstructions(true);
     }
   }, [deferredPrompt, platform]);
 
