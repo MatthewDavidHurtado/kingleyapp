@@ -24,10 +24,10 @@ const AmbassadorCard: React.FC<{
 // Sample ambassadors data - this would eventually come from a CMS or API
 const ambassadors = [
     {
-        name: "Sarah J.",
-        location: "Austin, TX",
-        proofOfValor: "I bought a stranger's lunch. They cried, and I realized this token isn't about crypto — it's about humans.",
-        avatar: "https://images.unsplash.com/photo-1494790108755-2616b612b786?w=150&h=150&fit=crop&crop=face"
+        name: "Malcolm K.",
+        location: "Sheboygan, WI",
+        proofOfValor: "Two girls handed me a flyer. They changed my day. I never forgot that moment. It started a movement.",
+        avatar: "https://i.imgur.com/TCgkT30.jpg"
     },
     {
         name: "Marcus K.",
