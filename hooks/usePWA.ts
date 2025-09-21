@@ -64,35 +64,44 @@ export const usePWA = (): PWAState => {
         return;
       }
 
-      // For iOS, check if user has dismissed install prompt recently
-      const iosPromptDismissed = localStorage.getItem('ios-install-dismissed');
-      const dismissedTime = iosPromptDismissed ? parseInt(iosPromptDismissed) : 0;
-      const daysSinceDismissed = (Date.now() - dismissedTime) / (1000 * 60 * 60 * 24);
-
-      // Show install prompt if not installed and not recently dismissed
-      if (!isInstalled && (platform !== 'ios' || daysSinceDismissed > 7)) {
-        setShowInstallPrompt(true);
+      // Only show install prompt on mobile devices (iOS and Android)
+      if (!isInstalled && (platform === 'ios' || platform === 'android')) {
+        // For iOS, check if user has dismissed install prompt recently
+        if (platform === 'ios') {
+          const iosPromptDismissed = localStorage.getItem('ios-install-dismissed');
+          const dismissedTime = iosPromptDismissed ? parseInt(iosPromptDismissed) : 0;
+          const daysSinceDismissed = (Date.now() - dismissedTime) / (1000 * 60 * 60 * 24);
+          
+          if (daysSinceDismissed > 7) {
+            setShowInstallPrompt(true);
+          }
+        } else {
+          // For Android, check general dismissal
+          const lastDismissed = localStorage.getItem('install-prompt-dismissed');
+          const dismissedTime = lastDismissed ? parseInt(lastDismissed) : 0;
+          const daysSinceDismissed = (Date.now() - dismissedTime) / (1000 * 60 * 60 * 24);
+          
+          if (daysSinceDismissed > 3) {
+            setShowInstallPrompt(true);
+          }
+        }
       }
     };
 
     checkInstallation();
   }, [isStandalone, platform, isInstalled]);
 
-  // Listen for beforeinstallprompt event (Android/Desktop)
+  // Listen for beforeinstallprompt event (Android only now)
   useEffect(() => {
     const handleBeforeInstallPrompt = (e: Event) => {
       e.preventDefault();
       const promptEvent = e as BeforeInstallPromptEvent;
       setDeferredPrompt(promptEvent);
-      setIsInstallable(true);
       
-      // Only show prompt if not recently dismissed
-      const lastDismissed = localStorage.getItem('install-prompt-dismissed');
-      const dismissedTime = lastDismissed ? parseInt(lastDismissed) : 0;
-      const daysSinceDismissed = (Date.now() - dismissedTime) / (1000 * 60 * 60 * 24);
-      
-      if (daysSinceDismissed > 3) {
+      // Only set as installable if on mobile
+      if (platform === 'android') {
         setShowInstallPrompt(true);
+        setIsInstallable(true);
       }
     };
 
@@ -110,7 +119,7 @@ export const usePWA = (): PWAState => {
       window.removeEventListener('beforeinstallprompt', handleBeforeInstallPrompt);
       window.removeEventListener('appinstalled', handleAppInstalled);
     };
-  }, []);
+  }, [platform]);
 
   const installApp = useCallback(async () => {
     console.log('🚀 Install app called', { 
@@ -164,7 +173,7 @@ export const usePWA = (): PWAState => {
   }, [platform]);
 
   return {
-    isInstallable: isInstallable || platform === 'ios',
+    isInstallable: (isInstallable || platform === 'ios') && (platform === 'ios' || platform === 'android'),
     isInstalled,
     isStandalone,
     showInstallPrompt,

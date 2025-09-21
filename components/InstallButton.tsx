@@ -13,8 +13,8 @@ const InstallButton: React.FC<InstallButtonProps> = ({
 }) => {
   const { isInstallable, isInstalled, isStandalone, installApp, platform } = usePWA();
 
-  // Don't show if already installed or not installable
-  if (isInstalled || isStandalone || !isInstallable) {
+  // Don't show if already installed, not installable, or not on mobile
+  if (isInstalled || isStandalone || !isInstallable || (platform !== 'ios' && platform !== 'android')) {
     return null;
   }
 
