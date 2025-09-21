@@ -1,6 +1,7 @@
 
 import React, { useState, useCallback, useEffect } from 'react';
 import { WalletProvider } from './hooks/useWallet';
+import PWAInstallPrompt from './components/PWAInstallPrompt';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import HomePage from './pages/HomePage';
@@ -86,6 +87,7 @@ const App: React.FC = () => {
   return (
     <WalletProvider>
       <div className="flex flex-col min-h-screen font-sans bg-white">
+        <PWAInstallPrompt />
         <Header navigateTo={navigateTo} currentPage={currentPage} />
         <div className="py-3 bg-gray-50 border-b border-t border-gray-200">
             <div className="container mx-auto px-4 text-center">

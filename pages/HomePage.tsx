@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { Page } from '../types';
 import Button from '../components/Button';
+import InstallButton from '../components/InstallButton';
 import { TribeLogo, VolumeUpIcon, VolumeOffIcon, PlayIcon, PauseIcon } from '../components/icons';
 
 interface HomePageProps {
@@ -93,6 +94,9 @@ const HomePage: React.FC<HomePageProps> = ({ navigateTo }) => {
       
       {/* Button Section below the video */}
       <div className="max-w-sm mx-auto py-12 px-4">
+          <div className="mb-4">
+              <InstallButton className="w-full text-sm" />
+          </div>
           <Button onClick={() => navigateTo(Page.CLAIM)} className="text-lg flex items-center justify-center space-x-2">
               <TribeLogo className="w-6 h-6" />
               <span>GET $RWPOV TOKENS</span>
