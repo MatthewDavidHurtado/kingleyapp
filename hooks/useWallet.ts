@@ -147,6 +147,7 @@ export const WalletProvider: React.FC<{ children: React.ReactNode }> = ({ childr
             console.error("Could not process payload from Phantom:", e);
             setError("Connection failed. The response from Phantom could not be processed. Please try again.");
             setStatus('error');
+            localStorage.removeItem('dappSecretKey'); // Clean up on error too
         }
     }
   }, []); // Run once on mount to check for redirect params
@@ -180,6 +181,9 @@ export const WalletProvider: React.FC<{ children: React.ReactNode }> = ({ childr
             const dappKeyPair = nacl.box.keyPair();
             const dappPublicKey = bs58.encode(dappKeyPair.publicKey);
             const dappSecretKey = bs58.encode(dappKeyPair.secretKey);
+            
+            // Clear any existing secret key first
+            localStorage.removeItem('dappSecretKey');
             localStorage.setItem('dappSecretKey', dappSecretKey);
             
             const redirectLink = new URL(window.location.origin);
@@ -196,6 +200,7 @@ export const WalletProvider: React.FC<{ children: React.ReactNode }> = ({ childr
             });
             
             const url = `https://phantom.app/ul/v1/connect?${params.toString()}`;
+            console.log('Redirecting to Phantom with URL:', url);
             window.location.href = url;
         } catch (e) {
             console.error("Failed to prepare for mobile connection:", e);
@@ -217,6 +222,8 @@ export const WalletProvider: React.FC<{ children: React.ReactNode }> = ({ childr
     if (provider) {
         await provider.disconnect();
     }
+    // Clean up any stored keys
+    localStorage.removeItem('dappSecretKey');
     setPublicKey(null);
     setStatus('disconnected');
     setError(null);
