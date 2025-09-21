@@ -7,12 +7,14 @@ const assets = [
   {
     title: 'Business Pitch One-Pager',
     blurb: 'This one-page overview explains the KINGLEY / $RWPOV movement in simple, business-friendly terms. It is designed to introduce local business owners to the concept of Real World Proof of Value and how partnering in a Surprise and Delight Mission benefits their brand. Use this when pitching a business for the first time.',
-    link: 'https://drive.google.com/file/d/1RObgGQI4Lxw1mbPM6-lm9MF6lJHQXMba/view?usp=sharing'
+    link: 'https://drive.google.com/file/d/1RObgGQI4Lxw1mbPM6-lm9MF6lJHQXMba/view?usp=sharing',
+    showOnlineApp: false
   },
   {
     title: 'Business Agreement',
     blurb: 'A simple, one-page consent form that establishes clear expectations with participating businesses. It ensures brand safety, sets caps on free offers, and provides mutual protection. Use this to formalize a business partnership before running a mission.',
-    link: 'https://drive.google.com/file/d/1lNLhOhmZLl20RpsKCyf4dmkfJ_poLukV/view?usp=sharing'
+    link: 'https://drive.google.com/file/d/1lNLhOhmZLl20RpsKCyf4dmkfJ_poLukV/view?usp=sharing',
+    showOnlineApp: true
   }
 ];
 
@@ -54,7 +56,7 @@ const MissionAssetsPage: React.FC = () => {
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 {assets.map(asset => (
-                    <AssetCard key={asset.title} {...asset} />
+                    <AssetCard key={asset.title} title={asset.title} blurb={asset.blurb} link={asset.link} showOnlineApp={asset.showOnlineApp} />
                 ))}
             </div>
             
