@@ -34,7 +34,7 @@ const Footer: React.FC = () => {
           </p>
           
           <div className="flex justify-center items-center space-x-6">
-            <a href="#" aria-label="X" className="text-gray-500 hover:text-black transition-colors">
+            <a href="https://x.com/MALCOLMKINGLEY" target="_blank" rel="noopener noreferrer" aria-label="X" className="text-gray-500 hover:text-black transition-colors">
               <XSocialIcon className="w-6 h-6" />
             </a>
             <a href="https://t.me/+NkMkrC7FPFs3OGIx" target="_blank" rel="noopener noreferrer" aria-label="Telegram" className="text-gray-500 hover:text-black transition-colors">
