@@ -31,7 +31,7 @@ const RwovPage: React.FC = () => {
              <header className="text-center">
                 <TribeLogo className="w-24 h-24 mx-auto mb-4" />
                 <h1 className="text-3xl md:text-4xl font-bold font-serif text-black mb-2">KINGLEY & $RWPOV</h1>
-                <p className="text-lg text-gray-600">The Parallel Universe and its Meme Coin.</p>
+                <p className="text-lg text-gray-600">Build A Better Human Experience.</p>
                 
                 <div className="mt-6 mb-8">
                     <Card>
