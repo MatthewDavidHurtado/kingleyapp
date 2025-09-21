@@ -20,6 +20,7 @@ const PWAInstallPrompt: React.FC = () => {
   }
 
   const handleInstall = async () => {
+    console.log('PWA Install button clicked');
     if (platform === 'ios') {
       setShowIOSInstructions(true);
     } else {

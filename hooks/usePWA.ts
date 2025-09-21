@@ -107,6 +107,8 @@ export const usePWA = (): PWAState => {
   }, []);
 
   const installApp = useCallback(async () => {
+    console.log('Install app called', { platform, deferredPrompt: !!deferredPrompt });
+    
     if (platform === 'ios') {
       // For iOS, we can't programmatically install, so we show instructions
       return;
@@ -114,18 +116,29 @@ export const usePWA = (): PWAState => {
 
     if (deferredPrompt) {
       try {
+        console.log('Showing install prompt...');
         await deferredPrompt.prompt();
         const choiceResult = await deferredPrompt.userChoice;
+        console.log('User choice:', choiceResult.outcome);
         
         if (choiceResult.outcome === 'accepted') {
           setIsInstalled(true);
           localStorage.setItem('pwa-installed', 'true');
+          console.log('App installed successfully');
         }
         
         setDeferredPrompt(null);
         setShowInstallPrompt(false);
       } catch (error) {
         console.error('Error during app installation:', error);
+      }
+    } else {
+      console.log('No deferred prompt available, trying manual installation');
+      // Fallback for browsers that don't support beforeinstallprompt
+      if (platform === 'desktop') {
+        alert('To install KINGLEY:\n\n1. Click the install icon in your browser\'s address bar\n2. Or go to browser menu → "Install KINGLEY"');
+      } else if (platform === 'android') {
+        alert('To install KINGLEY:\n\n1. Tap the menu (⋮) in your browser\n2. Select "Add to Home Screen" or "Install App"');
       }
     }
   }, [deferredPrompt, platform]);
