@@ -29,6 +29,11 @@ self.addEventListener('fetch', event => {
     return;
   }
   
+  // Skip service worker for WebSocket requests (HMR)
+  if (event.request.url.startsWith('ws://') || event.request.url.startsWith('wss://')) {
+    return;
+  }
+  
   event.respondWith(
     fetch(event.request)
       .then(response => {
