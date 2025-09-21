@@ -27,7 +27,7 @@ const ReleaseFormPage: React.FC = () => {
                     You can download the completed PDF directly from the app.
                 </p>
                 <a
-                    href="https://interactive-media-release-form-779946580524.us-west1.run.app"
+                    href="https://media-release-form-generator-779946580524.us-west1.run.app"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-block text-center font-bold py-4 px-8 rounded-lg transition duration-300 ease-in-out transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-white bg-gray-900 text-white hover:bg-gray-700 focus:ring-gray-900 text-lg"
