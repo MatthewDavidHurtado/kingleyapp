@@ -60,7 +60,7 @@ const ResourcesDropdown: React.FC<{ navigateTo: (page: Page) => void; currentPag
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, [dropdownRef]);
 
-  const isResourceActive = [Page.STORY, Page.HOW_TO_FILM, Page.RELEASE_FORM].includes(currentPage);
+  const isResourceActive = [Page.STORY, Page.HOW_TO_FILM, Page.RELEASE_FORM, Page.SHARE_VIDEO].includes(currentPage);
 
   return (
     <div className="relative" ref={dropdownRef}>
@@ -99,6 +99,14 @@ const ResourcesDropdown: React.FC<{ navigateTo: (page: Page) => void; currentPag
               }`}
             >
               Release Form
+            </button>
+            <button
+              onClick={() => handleNavigate(Page.SHARE_VIDEO)}
+              className={`w-full text-left px-4 py-2 text-sm font-semibold hover:bg-gray-50 transition-colors ${
+                currentPage === Page.SHARE_VIDEO ? 'text-black' : 'text-gray-600 hover:text-black'
+              }`}
+            >
+              Share Your Video
             </button>
           </div>
         </div>
@@ -167,6 +175,7 @@ const Header: React.FC<HeaderProps> = ({ navigateTo, currentPage }) => {
             <MobileNavLink onClick={() => handleNavigate(Page.STORY)} isActive={currentPage === Page.STORY}>The Story</MobileNavLink>
             <MobileNavLink onClick={() => handleNavigate(Page.HOW_TO_FILM)} isActive={currentPage === Page.HOW_TO_FILM}>How to Film</MobileNavLink>
             <MobileNavLink onClick={() => handleNavigate(Page.RELEASE_FORM)} isActive={currentPage === Page.RELEASE_FORM}>Release Form</MobileNavLink>
+            <MobileNavLink onClick={() => handleNavigate(Page.SHARE_VIDEO)} isActive={currentPage === Page.SHARE_VIDEO}>Share Your Video</MobileNavLink>
             <MobileNavLink onClick={() => handleNavigate(Page.RWPOV)} isActive={currentPage === Page.RWPOV}>$RWPOV (the token)</MobileNavLink>
           </div>
         </div>

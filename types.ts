@@ -10,6 +10,7 @@ export enum Page {
   RELEASE_FORM = 'release-form',
   MISSION_ASSETS = 'mission-assets',
   RWPOV = 'rwov',
+  SHARE_VIDEO = 'share-video',
 }
 
 export interface Balances {

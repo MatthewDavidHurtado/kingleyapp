@@ -14,6 +14,7 @@ import WelcomePage from './pages/WelcomePage';
 import RecruitPage from './pages/RecruitPage';
 import RwovPage from './pages/RwovPage';
 import MissionAssetsPage from './pages/MissionAssetsPage';
+import ShareVideoPage from './pages/ShareVideoPage';
 import { Page } from './types';
 
 const App: React.FC = () => {
@@ -79,6 +80,8 @@ const App: React.FC = () => {
         return <MissionAssetsPage />;
       case Page.RWPOV:
         return <RwovPage />;
+      case Page.SHARE_VIDEO:
+        return <ShareVideoPage />;
       default:
         return <HomePage navigateTo={navigateTo} />;
     }
