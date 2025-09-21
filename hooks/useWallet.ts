@@ -103,10 +103,19 @@ export const WalletProvider: React.FC<{ children: React.ReactNode }> = ({ childr
     const nonce = params.get('nonce');
     const data = params.get('data');
 
+    console.log('Mobile redirect check:', { 
+      hasPhantomKey: !!phantomPublicKey, 
+      hasNonce: !!nonce, 
+      hasData: !!data,
+      currentStatus: status 
+    });
+
     if (phantomPublicKey && nonce && data) {
         console.log('Processing Phantom redirect with params:', { phantomPublicKey: phantomPublicKey.slice(0, 8) + '...', nonce: nonce.slice(0, 8) + '...', data: data.slice(0, 8) + '...' });
         
         const dappSecretKeyStr = localStorage.getItem('dappSecretKey');
+        console.log('Retrieved dapp secret key:', !!dappSecretKeyStr);
+        
         if (!dappSecretKeyStr) {
             console.error('No dapp secret key found in localStorage');
             setError("Connection failed. Please try connecting again.");
@@ -139,6 +148,10 @@ export const WalletProvider: React.FC<{ children: React.ReactNode }> = ({ childr
                 throw new Error("Public key not found in decrypted payload.");
             }
 
+            // Store the connection in localStorage for persistence
+            localStorage.setItem('walletConnected', 'true');
+            localStorage.setItem('walletPublicKey', decryptedData.public_key);
+            
             setPublicKey(decryptedData.public_key);
             setStatus('connected');
             setBalances({ sol: 0, kingley: 0 });
@@ -174,6 +187,22 @@ export const WalletProvider: React.FC<{ children: React.ReactNode }> = ({ childr
         }
     }
   }, []); // Run once on mount to check for redirect params
+
+  // Effect to restore wallet connection from localStorage on app load
+  useEffect(() => {
+    const isConnected = localStorage.getItem('walletConnected');
+    const storedPublicKey = localStorage.getItem('walletPublicKey');
+    
+    console.log('Checking stored wallet connection:', { isConnected, hasPublicKey: !!storedPublicKey });
+    
+    if (isConnected === 'true' && storedPublicKey && status === 'disconnected') {
+      console.log('Restoring wallet connection from localStorage');
+      setPublicKey(storedPublicKey);
+      setStatus('connected');
+      setBalances({ sol: 0, kingley: 0 });
+      setError(null);
+    }
+  }, [status]);
 
   const connect = useCallback(async () => {
     setStatus('connecting');
@@ -256,6 +285,8 @@ export const WalletProvider: React.FC<{ children: React.ReactNode }> = ({ childr
     }
     // Clean up any stored keys
     localStorage.removeItem('dappSecretKey');
+    localStorage.removeItem('walletConnected');
+    localStorage.removeItem('walletPublicKey');
     setPublicKey(null);
     setStatus('disconnected');
     setError(null);
