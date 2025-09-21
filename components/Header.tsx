@@ -97,8 +97,8 @@ const Header: React.FC<HeaderProps> = ({ navigateTo, currentPage }) => {
     <>
       <header className="bg-white/80 backdrop-blur-sm sticky top-0 z-50 border-b border-gray-200">
         <nav className="container mx-auto px-4 py-3 flex justify-between items-center">
-          <div className="flex items-center space-x-3 cursor-pointer" onClick={() => handleNavigate(Page.HOME)}>
-            <TribeLogo className="w-8 h-8" />
+          <div className="flex items-center space-x-4 cursor-pointer" onClick={() => handleNavigate(Page.HOME)}>
+            <TribeLogo className="w-10 h-10" />
             <h1 className="text-xl md:text-2xl font-bold font-serif tracking-wide text-black">
               KINGLEY
             </h1>
@@ -123,12 +123,12 @@ const Header: React.FC<HeaderProps> = ({ navigateTo, currentPage }) => {
         </nav>
       </header>
       
-      {/* Mobile Menu Overlay */}
+      <div className="py-5 bg-gray-50 border-b border-t border-gray-200">
       <div className={`fixed inset-0 bg-white z-[100] flex-col p-4 lg:hidden transition-opacity duration-300 ease-in-out ${isMenuOpen ? 'opacity-100 pointer-events-auto flex' : 'opacity-0 pointer-events-none'}`}>
           <div className="flex justify-between items-center mb-8">
              <div className="flex items-center space-x-3" onClick={() => handleNavigate(Page.HOME)}>
-                <TribeLogo className="w-8 h-8" />
-                <h1 className="text-xl font-bold font-serif tracking-wide text-black">
+                <TribeLogo className="w-10 h-10" />
+                    <span className="block sm:inline font-bold">Build A Better Human Experience. </span>
                     KINGLEY
                 </h1>
             </div>

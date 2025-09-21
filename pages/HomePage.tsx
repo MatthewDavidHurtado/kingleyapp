@@ -64,13 +64,16 @@ const HomePage: React.FC<HomePageProps> = ({ navigateTo }) => {
           Your browser does not support the video tag.
         </video>
         
-        <div className="absolute top-0 left-0 w-full h-full bg-black/60 z-10"></div>
+        <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-t from-black/80 via-black/20 to-transparent z-10"></div>
         
         <div className="relative z-20 max-w-3xl mx-auto px-4">
             <TribeLogo className="w-20 h-20 md:w-24 md:h-24 mx-auto mb-8 animate-pulse" />
-            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold font-serif text-white mb-10 leading-tight drop-shadow-lg">
-              Real World Proof of Value: Build A Better Human Experience.
+            <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold font-serif text-white mb-6 leading-tight drop-shadow-2xl">
+              Real World Proof of Value
             </h1>
+            <p className="text-xl sm:text-2xl md:text-3xl font-light italic text-white/95 leading-relaxed drop-shadow-lg">
+              Every act of kindness becomes currency. Every person matters.
+            </p>
         </div>
         
         {/* Video Controls */}
