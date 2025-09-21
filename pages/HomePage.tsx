@@ -66,16 +66,18 @@ const HomePage: React.FC<HomePageProps> = ({ navigateTo }) => {
         
         <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-t from-black/80 via-black/20 to-transparent z-10"></div>
         
-        <div className="relative z-20 max-w-3xl mx-auto px-4">
-            <TribeLogo className="w-20 h-20 md:w-24 md:h-24 mx-auto mb-8 animate-pulse" />
-            <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold font-serif text-white mb-6 leading-tight drop-shadow-2xl">
-              Real World Proof of Value
-            </h1>
-            <p className="text-xl sm:text-2xl md:text-3xl font-light italic text-white/95 leading-relaxed drop-shadow-lg">
-              Every act of kindness becomes currency.<br />
-              Every person matters.
-            </p>
-        </div>
+        {!isPlaying && (
+          <div className="relative z-20 max-w-3xl mx-auto px-4">
+              <TribeLogo className="w-20 h-20 md:w-24 md:h-24 mx-auto mb-8 animate-pulse" />
+              <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold font-serif text-white mb-6 leading-tight drop-shadow-2xl">
+                Real World Proof of Value
+              </h1>
+              <p className="text-xl sm:text-2xl md:text-3xl font-light italic text-white/95 leading-relaxed drop-shadow-lg">
+                Every act of kindness becomes currency.<br />
+                Every person matters.
+              </p>
+          </div>
+        )}
         
         {/* Video Controls */}
         <div className="absolute bottom-4 flex justify-center items-center w-full z-30 px-4 space-x-4">
