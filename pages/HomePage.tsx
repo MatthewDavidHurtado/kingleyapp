@@ -72,7 +72,8 @@ const HomePage: React.FC<HomePageProps> = ({ navigateTo }) => {
               Real World Proof of Value
             </h1>
             <p className="text-xl sm:text-2xl md:text-3xl font-light italic text-white/95 leading-relaxed drop-shadow-lg">
-              Every act of kindness becomes currency. Every person matters.
+              Every act of kindness becomes currency.<br />
+              Every person matters.
             </p>
         </div>
         
