@@ -70,6 +70,16 @@ const ClaimPage: React.FC<ClaimPageProps> = ({ navigateTo }) => {
                 <Button onClick={connect} className="mt-3 text-sm py-2">Try Again</Button>
               </div>
             )}
+            <div className="mt-6 text-center">
+              <a
+                href="https://pump.fun/coin/D94ivVYw36R7H3J3unkVhTCZHDiXEWh91WyNUWyBmghD"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-sm text-gray-600 hover:text-black underline transition-colors"
+              >
+                I have a SOL wallet. Take me to the token buy page.
+              </a>
+            </div>
           </div>
         </Card>
       );
