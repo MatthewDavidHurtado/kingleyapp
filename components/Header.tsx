@@ -153,3 +153,5 @@ const Header: React.FC<HeaderProps> = ({ navigateTo, currentPage }) => {
 };
 
 export default Header;
+  )
+}
