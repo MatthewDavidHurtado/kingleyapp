@@ -102,9 +102,18 @@ export const WalletProvider: React.FC<{ children: React.ReactNode }> = ({ childr
     const phantomPublicKey = params.get('phantom_encryption_public_key');
     const nonce = params.get('nonce');
     const data = params.get('data');
-    const dappSecretKeyStr = localStorage.getItem('dappSecretKey');
 
-    if (phantomPublicKey && nonce && data && dappSecretKeyStr) {
+    if (phantomPublicKey && nonce && data) {
+        console.log('Processing Phantom redirect with params:', { phantomPublicKey: phantomPublicKey.slice(0, 8) + '...', nonce: nonce.slice(0, 8) + '...', data: data.slice(0, 8) + '...' });
+        
+        const dappSecretKeyStr = localStorage.getItem('dappSecretKey');
+        if (!dappSecretKeyStr) {
+            console.error('No dapp secret key found in localStorage');
+            setError("Connection failed. Please try connecting again.");
+            setStatus('error');
+            return;
+        }
+        
         setStatus('connecting'); // Set status immediately while we process
         try {
             const dappSecretKey = bs58.decode(dappSecretKeyStr);
@@ -124,6 +133,7 @@ export const WalletProvider: React.FC<{ children: React.ReactNode }> = ({ childr
             }
             
             const decryptedData = JSON.parse(new TextDecoder().decode(decryptedDataBytes));
+            console.log('Successfully decrypted data from Phantom');
             
             if (!decryptedData.public_key) {
                 throw new Error("Public key not found in decrypted payload.");
@@ -133,7 +143,8 @@ export const WalletProvider: React.FC<{ children: React.ReactNode }> = ({ childr
             setStatus('connected');
             setBalances({ sol: 0, kingley: 0 });
             setError(null);
-            localStorage.removeItem('dappSecretKey'); // Clean up single-use key
+            
+            console.log('Wallet connected successfully:', decryptedData.public_key.slice(0, 8) + '...');
 
             // Clean up URL to remove Phantom connection params and our custom return param
             const url = new URL(window.location.href);
@@ -142,12 +153,24 @@ export const WalletProvider: React.FC<{ children: React.ReactNode }> = ({ childr
             url.searchParams.delete('data');
             url.searchParams.delete('return_page');
             window.history.replaceState({}, document.title, url.toString());
+            
+            // Clean up after successful connection
+            localStorage.removeItem('dappSecretKey');
 
         } catch (e: any) {
-            console.error("Could not process payload from Phantom:", e);
-            setError("Connection failed. The response from Phantom could not be processed. Please try again.");
+            console.error("Could not process payload from Phantom:", e.message);
+            setError(`Connection failed: ${e.message}. Please try again.`);
             setStatus('error');
-            localStorage.removeItem('dappSecretKey'); // Clean up on error too
+            
+            // Clean up URL even on error
+            const url = new URL(window.location.href);
+            url.searchParams.delete('phantom_encryption_public_key');
+            url.searchParams.delete('nonce');
+            url.searchParams.delete('data');
+            url.searchParams.delete('return_page');
+            window.history.replaceState({}, document.title, url.toString());
+            
+            localStorage.removeItem('dappSecretKey');
         }
     }
   }, []); // Run once on mount to check for redirect params
@@ -177,14 +200,17 @@ export const WalletProvider: React.FC<{ children: React.ReactNode }> = ({ childr
 
     if (isMobile) {
         try {
+            console.log('Initiating mobile wallet connection...');
+            
             // Generate a fresh keypair for this connection attempt.
             const dappKeyPair = nacl.box.keyPair();
             const dappPublicKey = bs58.encode(dappKeyPair.publicKey);
             const dappSecretKey = bs58.encode(dappKeyPair.secretKey);
             
-            // Clear any existing secret key first
+            // Store the secret key for when we return from Phantom
             localStorage.removeItem('dappSecretKey');
             localStorage.setItem('dappSecretKey', dappSecretKey);
+            console.log('Stored dapp secret key for connection');
             
             const redirectLink = new URL(window.location.origin);
             const currentPage = sessionStorage.getItem('currentPage');
@@ -201,11 +227,17 @@ export const WalletProvider: React.FC<{ children: React.ReactNode }> = ({ childr
             
             const url = `https://phantom.app/ul/v1/connect?${params.toString()}`;
             console.log('Redirecting to Phantom with URL:', url);
-            window.location.href = url;
+            
+            // Add a small delay to ensure localStorage is written
+            setTimeout(() => {
+                window.location.href = url;
+            }, 100);
+            
         } catch (e) {
             console.error("Failed to prepare for mobile connection:", e);
             setError("Could not initiate connection. Please refresh and try again.");
             setStatus('error');
+            localStorage.removeItem('dappSecretKey');
         }
     } else {
         if (!isPhantomInstalled) {
