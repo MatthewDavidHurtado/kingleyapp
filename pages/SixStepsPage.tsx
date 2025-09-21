@@ -27,7 +27,14 @@ const StepCard: React.FC<{
       </div>
     </div>
     <div className="flex-grow flex flex-col">
-      <h3 className="text-lg font-bold text-black mb-3 leading-tight">{title}</h3>
+      <h3 className="text-lg font-bold text-black mb-3 leading-tight">
+        {title.split('\n').map((line, index) => (
+          <span key={index}>
+            {line}
+            {index < title.split('\n').length - 1 && <br />}
+          </span>
+        ))}
+      </h3>
       <p className="text-gray-700 text-sm leading-relaxed flex-grow">{description}</p>
     </div>
   </Card>
