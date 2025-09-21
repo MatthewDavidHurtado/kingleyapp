@@ -22,21 +22,23 @@ const AssetCard: React.FC<{ title: string; blurb: string; link: string; showOnli
         <h3 className="text-xl font-bold font-serif text-black mb-3">{title}</h3>
         <p className="text-gray-600 mb-6 flex-grow">{blurb}</p>
         <div className="space-y-3 mt-auto">
-            <a
-                href={link}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center w-full text-center font-bold py-3 px-6 rounded-lg transition duration-300 ease-in-out focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-white bg-gray-900 text-white hover:bg-gray-700 focus:ring-gray-900"
-            >
-                <DownloadIcon className="w-5 h-5 mr-2" />
-                Download PDF
-            </a>
+            {!showOnlineApp && (
+                <a
+                    href={link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center justify-center w-full text-center font-bold py-3 px-6 rounded-lg transition duration-300 ease-in-out focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-white bg-gray-900 text-white hover:bg-gray-700 focus:ring-gray-900"
+                >
+                    <DownloadIcon className="w-5 h-5 mr-2" />
+                    Download PDF
+                </a>
+            )}
             {showOnlineApp && (
                 <a
                     href="https://interactive-business-agreement-form-779946580524.us-west1.run.app"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center justify-center w-full text-center font-bold py-3 px-6 rounded-lg transition duration-300 ease-in-out focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-white bg-white border-2 border-gray-900 text-gray-900 hover:bg-gray-900 hover:text-white focus:ring-gray-900"
+                    className="inline-flex items-center justify-center w-full text-center font-bold py-3 px-6 rounded-lg transition duration-300 ease-in-out focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-white bg-gray-900 text-white hover:bg-gray-700 focus:ring-gray-900"
                 >
                     Online Agreement App
                 </a>
