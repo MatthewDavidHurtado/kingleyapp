@@ -43,7 +43,7 @@ const Footer: React.FC = () => {
           </div>
 
           <div className="text-xs text-gray-500 space-y-3">
-            <p>© 2025 KINGLEY / $RWPOV. All rights reserved.</p>
+            <p>© 2025 KINGLEY FOUNDATION · KINGLEY / $RWPOV. All rights reserved.</p>
             <div className="flex flex-wrap justify-center items-center gap-x-4 gap-y-2">
                 <button onClick={() => setActiveModal('terms')} className="hover:text-black underline transition-colors">
                     Terms & Conditions

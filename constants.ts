@@ -12,5 +12,5 @@ export const COPY = {
     MISSION_CHECKLIST: "Perform one kind act → Film with consent → Onboard the next person → Submit to Telegram: Missions Group.",
     LEADERBOARD_TITLE: "This week’s Chieftain’s Share",
     EMPTY_STATE: "No submissions yet. Be the first to share.",
-    DISCLAIMER: "Disclaimer: KINGLEY and $RWPOV are community-driven, experimental projects created for cultural and educational purposes. $RWPOV is a meme token issued on pump.fun and holds no inherent financial value. It is not an investment, security, or promise of future profit. Participation in missions, giveaways, or token use is voluntary and for entertainment and community-building only. KINGLEY does not provide financial, legal, or tax advice. Always act responsibly and within the laws of your jurisdiction.",
+    DISCLAIMER: "Disclaimer: KINGLEY FOUNDATION sponsors the KINGLEY and $RWPOV cultural initiative. $RWPOV is a community-driven, experimental meme token issued on pump.fun for cultural and educational purposes. It holds no inherent financial value and is not an investment, security, or promise of future profit. Participation in missions, giveaways, or token use is voluntary, for entertainment and community-building only. KINGLEY FOUNDATION does not provide financial, legal, or tax advice. Always act responsibly and within the laws of your jurisdiction.",
 };
