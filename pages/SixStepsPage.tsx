@@ -40,7 +40,7 @@ const steps = [
     description: "Choose your act of kindness. Keep it simple, real, and meaningful."
   },
   {
-    title: "Partner With a Business (Optional / Recommended)",
+    title: "Partner With a Business\n(Optional / Recommended)",
     image: "https://i.imgur.com/xfhNdBX.jpg",
     description: "Approach a local business, secure a small freebie or discount, and set the stage."
   },
