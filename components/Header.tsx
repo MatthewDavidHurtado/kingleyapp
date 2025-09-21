@@ -151,3 +151,6 @@ const Header: React.FC<HeaderProps> = ({ navigateTo, currentPage }) => {
       </>
   );
 };
+
+  )
+}
