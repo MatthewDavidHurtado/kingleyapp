@@ -13,21 +13,6 @@ const assets = [
     title: 'Business Agreement',
     blurb: 'A simple, one-page consent form that establishes clear expectations with participating businesses. It ensures brand safety, sets caps on free offers, and provides mutual protection. Use this to formalize a business partnership before running a mission.',
     link: 'https://drive.google.com/file/d/1lNLhOhmZLl20RpsKCyf4dmkfJ_poLukV/view?usp=sharing'
-  },
-  {
-    title: 'Business Card Handout (with QR)',
-    blurb: 'A small, pocket-sized card for direct hand-to-hand sharing. It contains the KINGLEY / $RWPOV branding, tagline, and a QR code linking back to the project. Use this during missions to give participants a tangible reminder of their Proof of Valor moment.',
-    link: 'https://drive.google.com/file/d/1wGkl6Yzxm7DuVcMKtP5OfoM0NdUtq9qc/view?usp=sharing'
-  },
-  {
-    title: 'Flyer Handout',
-    blurb: 'A larger, visually engaging handout designed for display on community boards, counters, or in-store. It communicates the movement and encourages new participants to scan the QR code and learn more. Use this to amplify awareness in high-traffic areas.',
-    link: 'https://drive.google.com/file/d/1qIC725bDYujhjHtRmlBtMR3YgQjBdyGw/view?usp=sharing'
-  },
-  {
-    title: 'Letterhead Template',
-    blurb: 'A full-sized document format branded for KINGLEY / $RWPOV communications. Use this for official correspondence with businesses, partners, or community organizations to maintain professional consistency.',
-    link: 'https://drive.google.com/file/d/1TMO9FLCkDhFgu2ZXWKZa8cNoNEwBlVwh/view?usp=sharing'
   }
 ];
 
