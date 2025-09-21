@@ -101,6 +101,21 @@ const RwovPage: React.FC = () => {
                 </p>
             </Card>
 
+            <Card>
+                <h3 className="text-xl font-bold font-serif text-black mb-3">Kingley</h3>
+                <p className="text-gray-700">
+                    Wallet: {' '}
+                    <a 
+                        href="https://pump.fun/D94ivVYw36R7H3J3unkVhTCZHDiXEWh91WyNUWyBmghD" 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="text-blue-600 hover:text-blue-800 underline font-mono"
+                    >
+                        D94i…mghD
+                    </a>
+                </p>
+            </Card>
+
             {isVideoOpen && (
               <div className="fixed inset-0 bg-black/80 z-[100] flex items-center justify-center p-4 animate-fade-in">
                 <div className="relative bg-black rounded-lg shadow-xl h-[85vh] aspect-[9/16] max-w-[90vw]">
