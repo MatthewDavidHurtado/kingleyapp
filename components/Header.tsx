@@ -74,10 +74,33 @@ const ResourcesDropdown: React.FC<{ navigateTo: (page: Page) => void; currentPag
         <ChevronDownIcon className={`w-4 h-4 ml-1 transition-transform ${isOpen ? 'rotate-180' : ''}`} />
       </button>
       {isOpen && (
-        <div className="absolute top-full mt-2 w-48 bg-white border border-gray-200 rounded-lg shadow-lg z-10">
-          <NavLink onClick={() => handleNavigate(Page.STORY)} isActive={currentPage === Page.STORY}>The Story</NavLink>
-          <NavLink onClick={() => handleNavigate(Page.HOW_TO_FILM)} isActive={currentPage === Page.HOW_TO_FILM}>How to Film</NavLink>
-          <NavLink onClick={() => handleNavigate(Page.RELEASE_FORM)} isActive={currentPage === Page.RELEASE_FORM}>Release Form</NavLink>
+        <div className="absolute top-full mt-2 w-48 bg-white border border-gray-200 rounded-lg shadow-lg z-10 py-2">
+          <div className="flex flex-col">
+            <button
+              onClick={() => handleNavigate(Page.STORY)}
+              className={`w-full text-left px-4 py-2 text-sm font-semibold hover:bg-gray-50 transition-colors ${
+                currentPage === Page.STORY ? 'text-black' : 'text-gray-600 hover:text-black'
+              }`}
+            >
+              The Story
+            </button>
+            <button
+              onClick={() => handleNavigate(Page.HOW_TO_FILM)}
+              className={`w-full text-left px-4 py-2 text-sm font-semibold hover:bg-gray-50 transition-colors ${
+                currentPage === Page.HOW_TO_FILM ? 'text-black' : 'text-gray-600 hover:text-black'
+              }`}
+            >
+              How to Film
+            </button>
+            <button
+              onClick={() => handleNavigate(Page.RELEASE_FORM)}
+              className={`w-full text-left px-4 py-2 text-sm font-semibold hover:bg-gray-50 transition-colors ${
+                currentPage === Page.RELEASE_FORM ? 'text-black' : 'text-gray-600 hover:text-black'
+              }`}
+            >
+              Release Form
+            </button>
+          </div>
         </div>
       )}
     </div>
