@@ -1,12 +1,13 @@
 {
   "name": "trial-run-fake-coin-of-needs-x-acct-trial-run-demo-of-kingley-recruitment-funnel",
   "private": true,
-  "version": "0.0.0",
+  "version": "1.0.3",
   "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "backup": "echo 'Creating backup entry...' && date"
   },
   "dependencies": {
     "react": "^18.2.0",
