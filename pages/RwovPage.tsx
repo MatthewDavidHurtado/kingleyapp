@@ -32,6 +32,24 @@ const RwovPage: React.FC = () => {
                 <TribeLogo className="w-24 h-24 mx-auto mb-4" />
                 <h1 className="text-3xl md:text-4xl font-bold font-serif text-black mb-2">KINGLEY & $RWPOV</h1>
                 <p className="text-lg text-gray-600">The Parallel Universe and its Meme Coin.</p>
+                
+                <div className="mt-6 mb-8">
+                    <Card>
+                        <h3 className="text-xl font-bold font-serif text-black mb-3">Kingley</h3>
+                        <p className="text-gray-700">
+                            Wallet: {' '}
+                            <a 
+                                href="https://pump.fun/D94ivVYw36R7H3J3unkVhTCZHDiXEWh91WyNUWyBmghD" 
+                                target="_blank" 
+                                rel="noopener noreferrer"
+                                className="text-blue-600 hover:text-blue-800 underline font-mono"
+                            >
+                                D94i…mghD
+                            </a>
+                        </p>
+                    </Card>
+                </div>
+                
                 <div className="mt-8 flex flex-col items-center space-y-4">
                     <button
                         onClick={() => setIsVideoOpen(true)}
@@ -98,21 +116,6 @@ const RwovPage: React.FC = () => {
                     $RWPOV is a meme coin launched on pump.fun.
                     It is not legal tender, not an investment contract, not financial advice, and not a promise of profit.
                     It is a digital collectible token tied to a cultural movement.
-                </p>
-            </Card>
-
-            <Card>
-                <h3 className="text-xl font-bold font-serif text-black mb-3">Kingley</h3>
-                <p className="text-gray-700">
-                    Wallet: {' '}
-                    <a 
-                        href="https://pump.fun/D94ivVYw36R7H3J3unkVhTCZHDiXEWh91WyNUWyBmghD" 
-                        target="_blank" 
-                        rel="noopener noreferrer"
-                        className="text-blue-600 hover:text-blue-800 underline font-mono"
-                    >
-                        D94i…mghD
-                    </a>
                 </p>
             </Card>
 
