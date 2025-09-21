@@ -168,7 +168,7 @@ const Header: React.FC<HeaderProps> = ({ navigateTo, currentPage }) => {
               <XIcon className="w-7 h-7" />
             </button>
           </div>
-          <div className="flex flex-col">
+          <div className="flex flex-col overflow-y-auto flex-1">
             <MobileNavLink onClick={() => handleNavigate(Page.HOME)} isActive={currentPage === Page.HOME}>Home</MobileNavLink>
             <MobileNavLink onClick={() => handleNavigate(Page.RECRUIT)} isActive={currentPage === Page.RECRUIT}>Recruit</MobileNavLink>
             <MobileNavLink onClick={() => handleNavigate(Page.MISSION)} isActive={currentPage === Page.MISSION}>Mission</MobileNavLink>
