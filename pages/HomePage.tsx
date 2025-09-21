@@ -66,7 +66,7 @@ const HomePage: React.FC<HomePageProps> = ({ navigateTo }) => {
         
         <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-t from-black/80 via-black/20 to-transparent z-10"></div>
         
-        {!isPlaying && (
+        {(isMuted || !isPlaying) && (
           <div className="relative z-20 max-w-3xl mx-auto px-4">
               <TribeLogo className="w-20 h-20 md:w-24 md:h-24 mx-auto mb-8 animate-pulse" />
               <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold font-serif text-white mb-6 leading-tight drop-shadow-2xl">
