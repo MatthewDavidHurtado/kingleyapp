@@ -70,7 +70,7 @@ const ResourcesDropdown: React.FC<{ navigateTo: (page: Page) => void; currentPag
           isResourceActive ? 'text-black' : 'text-gray-600 hover:text-black'
         }`}
       >
-        Resources
+        Go Live
         <ChevronDownIcon className={`w-4 h-4 ml-1 transition-transform ${isOpen ? 'rotate-180' : ''}`} />
       </button>
       {isOpen && (
