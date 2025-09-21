@@ -39,7 +39,7 @@ const RecruitPage: React.FC = () => {
         <div className="text-center p-4">
           <TribeLogo className="w-20 h-20 mx-auto mb-4" />
           <h2 className="text-2xl font-bold font-serif text-black mb-2">Build The Movement</h2>
-          <p className="text-gray-600 mb-6">Tap phones or have new recruits scan this QR code to join the movement.</p>
+          <p className="text-gray-600 mb-6">Have new recruits scan this QR code<br />to join the KINGLEY TR!BE.</p>
 
           <div className="p-4 bg-white rounded-lg inline-block w-64 h-64 flex items-center justify-center shadow-lg">
             {isLoading || !qrData ? (
