@@ -142,6 +142,7 @@ const Header: React.FC<HeaderProps> = ({ navigateTo, currentPage }) => {
             <NavLink onClick={() => handleNavigate(Page.MISSION)} isActive={currentPage === Page.MISSION}>Mission</NavLink>
             <NavLink onClick={() => handleNavigate(Page.MISSION_ASSETS)} isActive={currentPage === Page.MISSION_ASSETS}>Mission Assets</NavLink>
             <ResourcesDropdown navigateTo={navigateTo} currentPage={currentPage} closeMenu={() => {}} />
+            <NavLink onClick={() => handleNavigate(Page.WHO_WE_ARE)} isActive={currentPage === Page.WHO_WE_ARE}>Who We Are</NavLink>
             <NavLink onClick={() => handleNavigate(Page.RWPOV)} isActive={currentPage === Page.RWPOV}>$RWPOV (the token)</NavLink>
           </div>
 
@@ -176,6 +177,7 @@ const Header: React.FC<HeaderProps> = ({ navigateTo, currentPage }) => {
             <MobileNavLink onClick={() => handleNavigate(Page.HOW_TO_FILM)} isActive={currentPage === Page.HOW_TO_FILM}>How to Film</MobileNavLink>
             <MobileNavLink onClick={() => handleNavigate(Page.RELEASE_FORM)} isActive={currentPage === Page.RELEASE_FORM}>Release Form</MobileNavLink>
             <MobileNavLink onClick={() => handleNavigate(Page.SHARE_VIDEO)} isActive={currentPage === Page.SHARE_VIDEO}>Share Your Video</MobileNavLink>
+            <MobileNavLink onClick={() => handleNavigate(Page.WHO_WE_ARE)} isActive={currentPage === Page.WHO_WE_ARE}>Who We Are</MobileNavLink>
             <MobileNavLink onClick={() => handleNavigate(Page.RWPOV)} isActive={currentPage === Page.RWPOV}>$RWPOV (the token)</MobileNavLink>
           </div>
         </div>

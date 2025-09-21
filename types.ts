@@ -11,6 +11,7 @@ export enum Page {
   MISSION_ASSETS = 'mission-assets',
   RWPOV = 'rwov',
   SHARE_VIDEO = 'share-video',
+  WHO_WE_ARE = 'who-we-are',
 }
 
 export interface Balances {
