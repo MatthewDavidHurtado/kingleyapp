@@ -128,6 +128,7 @@ const Header: React.FC<HeaderProps> = ({ navigateTo, currentPage }) => {
           <div className="flex justify-between items-center mb-8">
              <div className="flex items-center space-x-3" onClick={() => handleNavigate(Page.HOME)}>
                 <TribeLogo className="w-10 h-10" />
+               <h1 className="text-xl md:text-2xl font-bold font-serif tracking-wide text-black">
                     <span className="block sm:inline font-bold">Build A Better Human Experience. </span>
                     KINGLEY
                 </h1>
