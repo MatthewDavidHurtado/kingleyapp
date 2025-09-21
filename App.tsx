@@ -17,6 +17,7 @@ import MissionAssetsPage from './pages/MissionAssetsPage';
 import ShareVideoPage from './pages/ShareVideoPage';
 import WhoWeArePage from './pages/WhoWeArePage';
 import SixStepsPage from './pages/SixStepsPage';
+import DonatePage from './pages/DonatePage';
 import { Page } from './types';
 
 const App: React.FC = () => {
@@ -88,6 +89,8 @@ const App: React.FC = () => {
         return <WhoWeArePage />;
       case Page.SIX_STEPS:
         return <SixStepsPage navigateTo={navigateTo} />;
+      case Page.DONATE:
+        return <DonatePage />;
       default:
         return <HomePage navigateTo={navigateTo} />;
     }

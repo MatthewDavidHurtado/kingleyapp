@@ -13,6 +13,7 @@ export enum Page {
   SHARE_VIDEO = 'share-video',
   WHO_WE_ARE = 'who-we-are',
   SIX_STEPS = 'six-steps',
+  DONATE = 'donate',
 }
 
 export interface Balances {
