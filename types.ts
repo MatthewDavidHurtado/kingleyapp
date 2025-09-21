@@ -12,6 +12,7 @@ export enum Page {
   RWPOV = 'rwov',
   SHARE_VIDEO = 'share-video',
   WHO_WE_ARE = 'who-we-are',
+  SIX_STEPS = 'six-steps',
 }
 
 export interface Balances {

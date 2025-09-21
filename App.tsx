@@ -16,6 +16,7 @@ import RwovPage from './pages/RwovPage';
 import MissionAssetsPage from './pages/MissionAssetsPage';
 import ShareVideoPage from './pages/ShareVideoPage';
 import WhoWeArePage from './pages/WhoWeArePage';
+import SixStepsPage from './pages/SixStepsPage';
 import { Page } from './types';
 
 const App: React.FC = () => {
@@ -85,6 +86,8 @@ const App: React.FC = () => {
         return <ShareVideoPage />;
       case Page.WHO_WE_ARE:
         return <WhoWeArePage />;
+      case Page.SIX_STEPS:
+        return <SixStepsPage navigateTo={navigateTo} />;
       default:
         return <HomePage navigateTo={navigateTo} />;
     }

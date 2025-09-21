@@ -61,6 +61,7 @@ const ResourcesDropdown: React.FC<{ navigateTo: (page: Page) => void; currentPag
   }, [dropdownRef]);
 
   const isResourceActive = [Page.STORY, Page.HOW_TO_FILM, Page.RELEASE_FORM, Page.SHARE_VIDEO].includes(currentPage);
+  const isResourceActive = [Page.STORY, Page.HOW_TO_FILM, Page.RELEASE_FORM, Page.SHARE_VIDEO, Page.SIX_STEPS].includes(currentPage);
 
   return (
     <div className="relative" ref={dropdownRef}>
@@ -107,6 +108,14 @@ const ResourcesDropdown: React.FC<{ navigateTo: (page: Page) => void; currentPag
               }`}
             >
               Share Your Video
+            </button>
+            <button
+              onClick={() => handleNavigate(Page.SIX_STEPS)}
+              className={`w-full text-left px-4 py-2 text-sm font-semibold hover:bg-gray-50 transition-colors ${
+                currentPage === Page.SIX_STEPS ? 'text-black' : 'text-gray-600 hover:text-black'
+              }`}
+            >
+              6 Steps, Do THIS!
             </button>
           </div>
         </div>
@@ -177,6 +186,7 @@ const Header: React.FC<HeaderProps> = ({ navigateTo, currentPage }) => {
             <MobileNavLink onClick={() => handleNavigate(Page.HOW_TO_FILM)} isActive={currentPage === Page.HOW_TO_FILM}>How to Film</MobileNavLink>
             <MobileNavLink onClick={() => handleNavigate(Page.RELEASE_FORM)} isActive={currentPage === Page.RELEASE_FORM}>Release Form</MobileNavLink>
             <MobileNavLink onClick={() => handleNavigate(Page.SHARE_VIDEO)} isActive={currentPage === Page.SHARE_VIDEO}>Share Your Video</MobileNavLink>
+            <MobileNavLink onClick={() => handleNavigate(Page.SIX_STEPS)} isActive={currentPage === Page.SIX_STEPS}>6 Steps, Do THIS!</MobileNavLink>
             <MobileNavLink onClick={() => handleNavigate(Page.WHO_WE_ARE)} isActive={currentPage === Page.WHO_WE_ARE}>Who We Are</MobileNavLink>
             <MobileNavLink onClick={() => handleNavigate(Page.RWPOV)} isActive={currentPage === Page.RWPOV}>$RWPOV (the token)</MobileNavLink>
           </div>
