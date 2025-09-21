@@ -29,35 +29,6 @@ const ambassadors = [
         proofOfValor: "Two girls handed me a flyer. They changed my day. I never forgot that moment. It started a movement.",
         avatar: "https://i.imgur.com/TCgkT30.jpg"
     },
-    {
-        name: "Marcus K.",
-        location: "Denver, CO",
-        proofOfValor: "Helped an elderly neighbor with groceries every week. Now she calls me her 'crypto grandson.'",
-        avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face"
-    },
-    {
-        name: "Luna M.",
-        location: "Portland, OR",
-        proofOfValor: "Started a community garden in my neighborhood. Every tomato grown is proof that kindness multiplies.",
-        avatar: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&h=150&fit=crop&crop=face"
-    },
-    {
-        name: "Alex R.",
-        location: "Miami, FL",
-        proofOfValor: "Paid for coffee for 50 people in one morning. The barista said it was the best shift of her life.",
-        avatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face"
-    },
-    {
-        name: "Jordan T.",
-        proofOfValor: "Left encouraging notes in library books. Someone found one during their darkest hour and it changed everything.",
-        avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150&h=150&fit=crop&crop=face"
-    },
-    {
-        name: "Riley C.",
-        location: "Seattle, WA",
-        proofOfValor: "Organized surprise birthday parties for homeless shelter residents. Joy is the ultimate proof of valor.",
-        avatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&h=150&fit=crop&crop=face"
-    }
 ];
 
 const WhoWeArePage: React.FC = () => {
