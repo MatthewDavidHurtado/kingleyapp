@@ -132,14 +132,6 @@ export const usePWA = (): PWAState => {
       } catch (error) {
         console.error('Error during app installation:', error);
       }
-    } else {
-      console.log('No deferred prompt available, trying manual installation');
-      // Fallback for browsers that don't support beforeinstallprompt
-      if (platform === 'desktop') {
-        alert('To install KINGLEY:\n\n1. Click the install icon in your browser\'s address bar\n2. Or go to browser menu → "Install KINGLEY"');
-      } else if (platform === 'android') {
-        alert('To install KINGLEY:\n\n1. Tap the menu (⋮) in your browser\n2. Select "Add to Home Screen" or "Install App"');
-      }
     }
   }, [deferredPrompt, platform]);
 
