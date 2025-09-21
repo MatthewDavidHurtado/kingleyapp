@@ -10,9 +10,13 @@ interface PWAState {
   isInstalled: boolean;
   isStandalone: boolean;
   showInstallPrompt: boolean;
+  showIOSInstructions: boolean;
+  showManualInstructions: boolean;
   platform: 'ios' | 'android' | 'desktop' | 'unknown';
   installApp: () => Promise<void>;
   dismissInstallPrompt: () => void;
+  setShowIOSInstructions: (show: boolean) => void;
+  setShowManualInstructions: (show: boolean) => void;
 }
 
 export const usePWA = (): PWAState => {
@@ -20,6 +24,8 @@ export const usePWA = (): PWAState => {
   const [isInstallable, setIsInstallable] = useState(false);
   const [isInstalled, setIsInstalled] = useState(false);
   const [showInstallPrompt, setShowInstallPrompt] = useState(false);
+  const [showIOSInstructions, setShowIOSInstructions] = useState(false);
+  const [showManualInstructions, setShowManualInstructions] = useState(false);
   const [platform, setPlatform] = useState<'ios' | 'android' | 'desktop' | 'unknown'>('unknown');
 
   // Detect platform
@@ -148,6 +154,8 @@ export const usePWA = (): PWAState => {
 
   const dismissInstallPrompt = useCallback(() => {
     setShowInstallPrompt(false);
+    setShowIOSInstructions(false);
+    setShowManualInstructions(false);
     localStorage.setItem('install-prompt-dismissed', Date.now().toString());
     
     if (platform === 'ios') {
@@ -160,8 +168,12 @@ export const usePWA = (): PWAState => {
     isInstalled,
     isStandalone,
     showInstallPrompt,
+    showIOSInstructions,
+    showManualInstructions,
     platform,
     installApp,
     dismissInstallPrompt,
+    setShowIOSInstructions,
+    setShowManualInstructions,
   };
 };

@@ -5,15 +5,17 @@ import { XIcon, DownloadIcon, TribeLogo } from './icons';
 const PWAInstallPrompt: React.FC = () => {
   const { 
     showInstallPrompt, 
+    showIOSInstructions,
+    showManualInstructions,
     platform, 
     installApp, 
     dismissInstallPrompt,
     isInstalled,
-    isStandalone 
+    isStandalone,
+    setShowIOSInstructions,
+    setShowManualInstructions
   } = usePWA();
   
-  const [showIOSInstructions, setShowIOSInstructions] = useState(false);
-  const [showManualInstructions, setShowManualInstructions] = useState(false);
 
   // Don't show if already installed or running as standalone app
   if (isInstalled || isStandalone || !showInstallPrompt) {
@@ -22,17 +24,7 @@ const PWAInstallPrompt: React.FC = () => {
 
   const handleInstall = async () => {
     console.log('🔘 PWA Install button clicked', { platform });
-    if (platform === 'ios') {
-      setShowIOSInstructions(true);
-    } else {
-      try {
-        await installApp();
-      } catch (error) {
-        console.error('❌ Install failed:', error);
-        // If automatic install fails, show manual instructions
-        setShowManualInstructions(true);
-      }
-    }
+    await installApp();
   };
 
   const getInstallText = () => {
