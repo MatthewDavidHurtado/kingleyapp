@@ -1,7 +1,6 @@
 
 import React, { useState, useCallback, useEffect } from 'react';
 import { WalletProvider } from './hooks/useWallet';
-import PasswordProtection from './components/PasswordProtection';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import HomePage from './pages/HomePage';
@@ -17,8 +16,6 @@ import MissionAssetsPage from './pages/MissionAssetsPage';
 import { Page } from './types';
 
 const App: React.FC = () => {
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
-
   const getInitialPage = (): Page => {
     const params = new URLSearchParams(window.location.search);
 
@@ -58,15 +55,6 @@ const App: React.FC = () => {
     sessionStorage.setItem('currentPage', page); // Keep session storage in sync
     window.scrollTo(0, 0);
   }, []);
-
-  const handleAuthenticated = () => {
-    setIsAuthenticated(true);
-  };
-
-  // Show password protection if not authenticated
-  if (!isAuthenticated) {
-    return <PasswordProtection onAuthenticated={handleAuthenticated} />;
-  }
 
   const renderPage = () => {
     switch (currentPage) {
