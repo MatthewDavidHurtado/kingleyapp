@@ -15,7 +15,7 @@ const NavLink: React.FC<{
 }> = ({ onClick, isActive, children }) => (
   <button
     onClick={onClick}
-    className={`px-3 py-2 text-sm md:text-base font-semibold rounded-md transition-colors duration-200 ${
+    className={`px-2 py-2 text-sm font-semibold rounded-md transition-colors duration-200 whitespace-nowrap ${
       isActive
         ? 'text-black'
         : 'text-gray-600 hover:text-black'
@@ -105,7 +105,7 @@ const Header: React.FC<HeaderProps> = ({ navigateTo, currentPage }) => {
           </div>
           
           {/* Desktop Nav */}
-          <div className="hidden md:flex items-center space-x-1 md:space-x-2">
+          <div className="hidden lg:flex items-center space-x-3 xl:space-x-4">
             <NavLink onClick={() => handleNavigate(Page.HOME)} isActive={currentPage === Page.HOME}>Home</NavLink>
             <NavLink onClick={() => handleNavigate(Page.RECRUIT)} isActive={currentPage === Page.RECRUIT}>Recruit</NavLink>
             <NavLink onClick={() => handleNavigate(Page.MISSION)} isActive={currentPage === Page.MISSION}>Mission</NavLink>
@@ -114,8 +114,8 @@ const Header: React.FC<HeaderProps> = ({ navigateTo, currentPage }) => {
             <NavLink onClick={() => handleNavigate(Page.RWPOV)} isActive={currentPage === Page.RWPOV}>$RWPOV (the token)</NavLink>
           </div>
 
-          {/* Mobile Nav Button */}
-          <div className="md:hidden">
+          {/* Mobile/Tablet Nav Button */}
+          <div className="lg:hidden">
             <button onClick={() => setIsMenuOpen(true)} className="text-black p-1">
               <MenuIcon className="w-7 h-7" />
             </button>
@@ -124,7 +124,7 @@ const Header: React.FC<HeaderProps> = ({ navigateTo, currentPage }) => {
       </header>
       
       {/* Mobile Menu Overlay */}
-      <div className={`fixed inset-0 bg-white z-[100] flex-col p-4 md:hidden transition-opacity duration-300 ease-in-out ${isMenuOpen ? 'opacity-100 pointer-events-auto flex' : 'opacity-0 pointer-events-none'}`}>
+      <div className={`fixed inset-0 bg-white z-[100] flex-col p-4 lg:hidden transition-opacity duration-300 ease-in-out ${isMenuOpen ? 'opacity-100 pointer-events-auto flex' : 'opacity-0 pointer-events-none'}`}>
           <div className="flex justify-between items-center mb-8">
              <div className="flex items-center space-x-3" onClick={() => handleNavigate(Page.HOME)}>
                 <TribeLogo className="w-8 h-8" />
