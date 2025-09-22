@@ -67,7 +67,8 @@ const StoryPage: React.FC = () => {
                     Because if a group of kids with paper, markers, and courage could change my day — even my life — then imagine what a global tribe of people armed with kindness and connection can do.
                 </p>
                 <p className="text-black font-serif text-2xl mt-6 text-center tracking-wider">
-                    This is the movement. This is the way.
+                    <span className="block sm:inline">This is the movement.</span>
+                    <span className="block sm:inline"> This is the way.</span>
                 </p>
              </Card>
 
