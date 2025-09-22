@@ -175,9 +175,8 @@ const Header: React.FC<HeaderProps> = ({ navigateTo, currentPage }) => {
              <div className="flex items-center space-x-3" onClick={() => handleNavigate(Page.HOME)}>
                 <TribeLogo className="w-10 h-10" />
                <h1 className="text-xl md:text-2xl font-bold font-serif tracking-wide text-black">
-                    <span className="block sm:inline font-bold">Build A Better Human Experience. </span>
                     KINGLEY
-                </h1>
+               </h1>
             </div>
             <button onClick={() => setIsMenuOpen(false)} className="text-black p-1">
               <XIcon className="w-7 h-7" />
