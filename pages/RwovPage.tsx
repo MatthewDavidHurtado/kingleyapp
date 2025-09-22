@@ -42,12 +42,12 @@ const RwovPage: React.FC = () => {
                         <p className="text-gray-700">
                             Wallet: {' '}
                             <a 
-                                href="https://pump.fun/D94ivVYw36R7H3J3unkVhTCZHDiXEWh91WyNUWyBmghD" 
+                                href="https://pump.fun/coin/HpEY3vsjmz5D8A4Y8HpD1WyWRYrqxqa2P5VrmxV1pump" 
                                 target="_blank" 
                                 rel="noopener noreferrer"
                                 className="text-blue-600 hover:text-blue-800 underline font-mono"
                             >
-                                D94i…mghD
+                                BUY TOKENS
                             </a>
                         </p>
                     </Card>
