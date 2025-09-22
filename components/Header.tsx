@@ -151,6 +151,14 @@ const Header: React.FC<HeaderProps> = ({ navigateTo, currentPage }) => {
             <NavLink onClick={() => handleNavigate(Page.MISSION_ASSETS)} isActive={currentPage === Page.MISSION_ASSETS}>Mission Assets</NavLink>
             <ResourcesDropdown navigateTo={navigateTo} currentPage={currentPage} closeMenu={() => {}} />
             <NavLink onClick={() => handleNavigate(Page.RWPOV)} isActive={currentPage === Page.RWPOV}>$RWPOV (the token)</NavLink>
+            <a 
+              href="https://www.kingleyfoundation.org" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="px-2 py-2 text-sm font-semibold rounded-md transition-colors duration-200 whitespace-nowrap text-gray-600 hover:text-black"
+            >
+              Kingley Foundation
+            </a>
           </div>
 
           {/* Mobile/Tablet Nav Button */}
@@ -186,6 +194,14 @@ const Header: React.FC<HeaderProps> = ({ navigateTo, currentPage }) => {
             <MobileNavLink onClick={() => handleNavigate(Page.SHARE_VIDEO)} isActive={currentPage === Page.SHARE_VIDEO}>Share Your Video</MobileNavLink>
             <MobileNavLink onClick={() => handleNavigate(Page.SIX_STEPS)} isActive={currentPage === Page.SIX_STEPS}>6 Steps, Do THIS!</MobileNavLink>
             <MobileNavLink onClick={() => handleNavigate(Page.RWPOV)} isActive={currentPage === Page.RWPOV}>$RWPOV (the token)</MobileNavLink>
+            <a 
+              href="https://www.kingleyfoundation.org" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="w-full text-left text-2xl font-semibold py-4 border-b border-gray-200/80 text-gray-800 block"
+            >
+              Kingley Foundation
+            </a>
           </div>
         </div>
       </>
