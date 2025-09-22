@@ -70,11 +70,12 @@ const HomePage: React.FC<HomePageProps> = ({ navigateTo }) => {
           <div className="relative z-20 max-w-3xl mx-auto px-4">
               <TribeLogo className="w-20 h-20 md:w-24 md:h-24 mx-auto mb-8 animate-pulse" />
               <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold font-serif text-white mb-6 leading-tight drop-shadow-2xl">
-                Real World Proof of Value
+                <span className="block sm:hidden">Real World Proof<br />of Value $RWPOV</span>
+                <span className="hidden sm:block">Real World Proof of Value</span>
               </h1>
               <p className="text-xl sm:text-2xl md:text-3xl font-light italic text-white/95 leading-relaxed drop-shadow-lg">
-                Every act of kindness becomes currency.<br />
-                Every person matters.
+                <span className="block sm:hidden">Every act of kindness becomes currency. Every person matters.</span>
+                <span className="hidden sm:block">Every act of kindness becomes currency.<br />Every person matters.</span>
               </p>
           </div>
         )}
