@@ -37,11 +37,8 @@ const DonatePage: React.FC = () => {
             <header className="text-center">
                 <h1 className="text-3xl md:text-4xl font-bold font-serif text-black mb-4">Donate to KINGLEY FOUNDATION</h1>
                 <div className="max-w-2xl mx-auto">
-                    <p className="text-lg text-gray-700 mb-4">
-                        KINGLEY FOUNDATION is a registered 508(c)(1)(a) faith-based nonprofit in the State of Washington.
-                    </p>
-                    <p className="text-lg text-gray-700">
-                        Your donations support the expansion of the Foundation's mission: building a better human experience through kindness, culture, and community.
+                    <p className="text-base text-gray-700">
+                        KINGLEY FOUNDATION is a registered 508(c)(1)(a) faith-based nonprofit in the State of Washington. Your donations support the expansion of the Foundation's mission: building a better human experience through kindness, culture, and community.
                     </p>
                 </div>
             </header>
