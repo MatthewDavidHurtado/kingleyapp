@@ -79,7 +79,7 @@ const SixStepsPage: React.FC<SixStepsPageProps> = ({ navigateTo }) => {
       <header className="text-center">
         <h1 className="text-3xl md:text-4xl font-bold font-serif text-black mb-4">
           <span className="block sm:hidden">How It Works:<br />6 Steps to Success<br />($RWPOV)</span>
-          <span className="hidden sm:block">How It Works: 6 Steps to Success:<br />Build a Better Human Experience</span>
+          <span className="hidden sm:block">How It Works: 6 Steps to Success-<br />Build a Better Human Experience</span>
         </h1>
         <p className="text-lg text-gray-600 max-w-3xl mx-auto">
           Transform acts of kindness into lasting value. Here's your complete guide to creating 
