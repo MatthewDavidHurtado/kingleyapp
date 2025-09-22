@@ -53,7 +53,10 @@ const StoryPage: React.FC = () => {
             </Card>
 
             <Card>
-                <h2 className="text-2xl font-serif text-black mb-4">And it stayed with me. For years.</h2>
+                <h2 className="text-2xl font-serif text-black mb-4">
+                    <span className="block sm:inline">And it stayed with me.</span>
+                    <span className="block sm:inline"> For years.</span>
+                </h2>
                 <p className="mb-4">
                     That moment became a marker in my life — proof that even the smallest act of kindness can ripple out and live in someone’s heart long after it’s given. Proof that goodness in the world is still real. Proof that we all have the power to create moments that matter.
                 </p>
