@@ -47,57 +47,22 @@ const DonatePage: React.FC = () => {
             </header>
 
             <Card>
-                <SectionTitle>Traditional Payment Methods</SectionTitle>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div className="text-center">
-                        <div className="w-full h-16 bg-blue-600 rounded-lg flex items-center justify-center mb-4 cursor-pointer hover:bg-blue-700 transition-colors">
-                            <span className="text-white font-bold text-lg">PayPal</span>
-                        </div>
-                        <p className="text-sm text-gray-600">Secure donation via PayPal</p>
-                    </div>
-                    <div className="text-center">
-                        <div className="w-full h-16 bg-purple-600 rounded-lg flex items-center justify-center mb-4 cursor-pointer hover:bg-purple-700 transition-colors">
-                            <span className="text-white font-bold text-lg">Stripe</span>
-                        </div>
-                        <p className="text-sm text-gray-600">Credit/Debit card via Stripe</p>
-                    </div>
-                </div>
-            </Card>
-
-            <Card>
-                <SectionTitle>Cryptocurrency Donations</SectionTitle>
+                <SectionTitle>Make a Donation</SectionTitle>
                 <p className="text-gray-600 mb-6 text-center">
-                    Support us with cryptocurrency donations. Scan the QR code or copy the wallet address.
+                    Support us with cryptocurrency donations through our secure payment widget.
                 </p>
-                <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-                    <CryptoCard 
-                        symbol="BTC" 
-                        name="Bitcoin"
-                    />
-                    <CryptoCard 
-                        symbol="ETH" 
-                        name="Ethereum"
-                    />
-                    <CryptoCard 
-                        symbol="USDC" 
-                        name="USD Coin"
-                    />
-                    <CryptoCard 
-                        symbol="USDT" 
-                        name="Tether"
-                    />
-                    <CryptoCard 
-                        symbol="SOL" 
-                        name="Solana"
-                    />
-                    <CryptoCard 
-                        symbol="XRP" 
-                        name="Ripple"
-                    />
-                    <CryptoCard 
-                        symbol="LTC" 
-                        name="Litecoin"
-                    />
+                <div className="flex justify-center">
+                    <iframe 
+                        src="https://nowpayments.io/embeds/donation-widget?api_key=6ca50e54-ecb9-41fb-b1b1-288cdb71cbb4" 
+                        width="346" 
+                        height="623" 
+                        frameBorder="0" 
+                        scrolling="no" 
+                        style={{overflowY: 'hidden'}}
+                        title="Cryptocurrency Donation Widget"
+                    >
+                        Can't load widget
+                    </iframe>
                 </div>
             </Card>
 
