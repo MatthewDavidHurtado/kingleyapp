@@ -1,0 +1,13 @@
+{
+  "name": "password-protected-site",
+  "version": "1.0.0",
+  "description": "A simple password-protected static site",
+  "main": "index.html",
+  "scripts": {
+    "build": "echo 'No build process needed for static HTML' && exit 0",
+    "start": "echo 'Open index.html in your browser' && exit 0"
+  },
+  "keywords": ["static", "html", "password-protected"],
+  "author": "",
+  "license": "MIT"
+}
